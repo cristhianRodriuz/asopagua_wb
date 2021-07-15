@@ -15,6 +15,9 @@ class ControllerClientes{
     public static function ctrAgregarCliente($datos){
         return ModelClientes::mdlAgregarCliente($datos);
     }
+    public static function ctrAgregarClienteCart($datos){
+        return ModelClientes::mdlAgregarClienteCart($datos);
+    }
     public static function ctrGetDataCliente($datos){
         return ModelClientes::mdlGetDataCliente($datos);
     }

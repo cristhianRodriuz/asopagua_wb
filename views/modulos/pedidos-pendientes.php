@@ -253,6 +253,7 @@ $().ready(function(){
                                 newEstado
                             },
                             success: function (response) {
+                                // console.log(response);
                                 let dataJson = JSON.parse(response);
                                 if(dataJson.verificado == true){
                                     Swal.fire(

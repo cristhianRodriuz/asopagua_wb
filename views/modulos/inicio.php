@@ -59,17 +59,20 @@
         <div class="menu-area">
             <nav id="mobile-menu" aria-labelledby="menu-trigger" class="trsn d-lg-none">
                 <ul>
-                    <li class=" mobile">
-                        <a href="/inicio" title="inicio">Inicio</a>
+                <li class=" mobile">
+                        <a href="inicio" title="inicio">Inicio</a>
                     </li>
                     <li class=" mobile">
-                        <a href="/nosotros" title="nosotros">Nosotros</a>
+                        <a href="nosotros" title="nosotros">Nosotros</a>
                     </li>
                     <li class=" mobile">
                         <a href="catalogo-productos" title="productos">Productos</a>
                     </li>
                     <li class=" mobile">
-                        <a href="/contacto" title="contacto">Contacto</a>
+                        <a href="news" title="news">Noticias</a>
+                    </li>
+                    <li class=" mobile">
+                        <a href="contacto" title="contacto">Contacto</a>
                     </li>
                 </ul>
             </nav>
@@ -79,25 +82,25 @@
                         <div class="navbar navbar-expand-lg">
                             <div id="main-menu" class="collapse navbar-collapse">
                                 <ul class="navbar-nav mr-auto list-group-horizontal d-table">
-                                    <li class="nav-item d-table-cell">
-                                        <a href="/" title="inicio" class=" trsn nav-link d-table-cell align-middle">Inicio</a>
+                                <li class="nav-item d-table-cell">
+                                        <a href="inicio" title="inicio" class=" trsn nav-link d-table-cell align-middle">Inicio</a>
                                     </li>
                                     <li class="nav-item d-table-cell">
-                                        <a href="/nosotros" title="nosotros" class=" trsn nav-link d-table-cell align-middle">Nosotros</a>
+                                        <a href="nosotros" title="nosotros" class=" trsn nav-link d-table-cell align-middle">Nosotros</a>
                                     </li>
                                     <li class="nav-item d-table-cell">
                                         <a href="catalogo-productos" title="productos" class=" trsn nav-link d-table-cell align-middle">Productos</a>
                                     </li>
                                     <li class="nav-item d-table-cell">
-                                        <a href="/noticias" title="Noticias" class=" trsn nav-link d-table-cell align-middle">Noticias</a>
+                                        <a href="news" title="news" class=" trsn nav-link d-table-cell align-middle">Noticias</a>
                                     </li>
                                     <li class="nav-item d-table-cell">
-                                        <a href="/contacto" title="Contacto" class=" trsn nav-link d-table-cell align-middle">Contacto</a>
+                                        <a href="contacto" title="Contacto" class=" trsn nav-link d-table-cell align-middle">Contacto</a>
                                     </li>
                                 </ul>
                                 <ul class="social navbar-toggler-right list-inline d-none d-xl-block">
                                     <li class="list-inline-item">
-                                        <a href="" class="trsn" title="Ir a Facebook" target="_blank">
+                                        <a href="https://www.facebook.com/asopagua.asopagua.75" class="trsn" title="Ir a Facebook" target="_blank">
                                             <i class="fab fa-facebook"></i>
                                         </a>
                                     </li>
@@ -453,6 +456,106 @@
             </div>
         </div>
     </div>
+    <div class="my-5 mt-3">
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-between p-4" style="background-color:rgb(0, 98, 98)">
+            <!-- Left -->
+            <div class="me-5">
+                <span>Recuerda buscarnos en nuestra página oficial de Facebook:</span>
+            </div>
+            <!-- Left -->
+
+            <!-- Right -->
+            <div>
+                <a href="https://www.facebook.com/asopagua.asopagua.75" target="__blank" class="text-white me-4">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold c-white">Nuestra Asociación</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: rgb(0, 98, 98); height: 2px" />
+                        <p class="font-italic c-white">
+                            "Nuestra asociación tiene garantía de calidad e higiene de todos los productos lacteos"
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold c-white">Productos</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: rgb(0, 98, 98); height: 2px" />
+                        <p>
+                            <a href="#!" class="text-white">Leche Cruda</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Yogourt</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-white">Queso</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold c-white">Secciones</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: rgb(0, 98, 98); height: 2px" />
+                        <p>
+                            <a href="nosotros" class="text-white">¿Quienes Somos?</a>
+                        </p>
+                        <p>
+                            <a href="catalogo-productos" class="text-white">Productos</a>
+                        </p>
+                        <p>
+                            <a href="news" class="text-white">Noticias</a>
+                        </p>
+                        <p>
+                            <a href="contacto" class="text-white">Contacto</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold c-white">Contacto</h6>
+                        <hr class="mb-4 mt-0 d-inline-block mx-auto" style="width: 60px; background-color: rgb(0, 98, 98); height: 2px" />
+                        <p class="text-white"><i class="fas fa-home mr-3"></i> Parroquia Guasaganga La Mana, Cotopaxi, Ecuador</p>
+                        <p class="text-white"><i class="fas fa-envelope mr-3"></i> asopagua@gmail.com</p>
+                        <p class="text-white"><i class="fas fa-phone mr-3"></i> + 593 9815 7450 08</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+            © 2020 Copyright:
+            <a class="text-white">ASOPAGUA OFICIAL</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+
+</div>
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
     <scrip src="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></scrip>
     <script src="<?php echo URL . VW; ?>assets/vendor/owlcarousel/owl.carousel.min.js"></script>
@@ -939,6 +1042,9 @@
 
         header #main-menu .navbar-nav a.nav-link {
             font-size: 14px !important;
+        }
+        .c-white{
+            color: white;
         }
     </style>
 </body>

@@ -1,5 +1,6 @@
 <?php
 require 'conexion.php';
+date_default_timezone_set("America/Guayaquil");
 class ModelPedidos{
     public static function mdlGetPedidos(){
         try{
@@ -61,10 +62,36 @@ class ModelPedidos{
         }
     }
     public static function mdlSetEstadoPedido($idPedido,$estado){
+        $bandera = false;
         try{
             $query = Conexion::conectar()->prepare("UPDATE pedidos set estado=:estado WHERE id=:idPedido");
             $query->execute(["estado" => $estado,"idPedido" => $idPedido]);
-            return ($query->rowCount() > 0) ? true : false;
+            if($estado == "Enviado"){
+                $obtenerDetalles = Conexion::conectar()->prepare("SELECT * FROM detalle_pedido dp WHERE dp.id_pedido = :idPedido");
+                $obtenerDetalles->execute(["idPedido" => $idPedido]);
+                if($obtenerDetalles->rowCount() > 0){
+                    $detalles = $obtenerDetalles->fetchAll();
+                    $count = count($detalles);
+                    for($i = 0; $i < $count; $i++){
+                        $cantidad = $detalles[$i]["cantidad"];
+                        $codigoProducto = $detalles[$i]["codigo_producto"];
+                        $obtenerIDProducto = Conexion::conectar()->prepare("SELECT p.id FROM productos p WHERE p.codigo=:codigo");
+                        $obtenerIDProducto->execute(["codigo" => $codigoProducto]);
+                        if($obtenerIDProducto->rowCount() > 0){
+                            $idProducto = $obtenerIDProducto->fetchColumn();
+                            $reduceStock = Conexion::conectar()->prepare("UPDATE productos p SET p.stock = (p.stock - :cantidad) where p.id = :idProducto");
+                            $reduceStock->execute(["cantidad" => $cantidad, "idProducto"=> $idProducto]);
+                            $bandera = true;
+                        }
+                    }
+                }else{
+                    $bandera = false;
+                }
+            }
+            if($query->rowCount() >  0){
+                $bandera = true;
+            }
+            return $bandera;
         }catch(PDOException $e){
 
         }
@@ -95,11 +122,12 @@ class ModelPedidos{
         foreach($detallePedido as $clave => $valor){
             array_push($key,$clave);
         }
-        $sql = "INSERT INTO detalle_pedido VALUES(0,:idPedido,:nombreProducto,:cantidad,:precio)";
+        $sql = "INSERT INTO detalle_pedido VALUES(0,:idPedido,:codigo,:nombreProducto,:cantidad,:precio)";
         for($i = 0; $i < count($key); $i++){
             $stmt = Conexion::conectar()->prepare($sql);
             $stmt->execute([
                 "idPedido" => $idPedido,
+                "codigo" => $detallePedido[$key[$i]]["codigo_producto"],
                 "nombreProducto" => $detallePedido[$key[$i]]["nombre"], 
                 "cantidad" => $detallePedido[$key[$i]]["cantidad"],
                 "precio" => $detallePedido[$key[$i]]["precio"]

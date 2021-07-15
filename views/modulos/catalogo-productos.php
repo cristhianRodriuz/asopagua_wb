@@ -42,19 +42,13 @@
                             </div>
                         </button>
                     </div>
-                    <div class="col-lg-4 col-md-4 d-none d-lg-block">
+                    <div class="col-lg-6 col-md-6 d-none d-lg-block">
                         <a href="" title="Despacho Pistacho" class="navbar-brand">
                             <!-- <img src="bg_small.png" class="store-image" style="max-width: 50%;" alt="Despacho Pistacho" /> -->
                             <span class="logo_text">Logo pendiente</span>
                         </a>
                     </div>
-                    <div class="col-lg-4 col-8">
-                        <form id="search_mini_form" class="form-group" method="get" action="/search">
-                            <input type="text" value="" name="q" class="form-control form-control-sm" onFocus="javascript:this.value=''" placeholder="Buscar productos" />
-                            <button type="submit" class="btn primary"><i class="linear-icon icon-0803-magnifier"></i></button>
-                        </form>
-                    </div>
-                    <div class="col-lg-4 col-2 text-right">
+                    <div class="col-lg-6 col-4 text-right">
                         <div class="header-cart">
                             <span class="cart-size">0</span>
                             <a id="cart-link" href="<?php URL . VW ?>cart" class="btn secondary">
@@ -69,16 +63,19 @@
             <nav id="mobile-menu" aria-labelledby="menu-trigger" class="trsn d-lg-none">
                 <ul>
                     <li class=" mobile">
-                        <a href="/inicio" title="inicio">Inicio</a>
+                        <a href="inicio" title="inicio">Inicio</a>
                     </li>
                     <li class=" mobile">
-                        <a href="/nosotros" title="nosotros">Nosotros</a>
+                        <a href="nosotros" title="nosotros">Nosotros</a>
                     </li>
                     <li class=" mobile">
                         <a href="catalogo-productos" title="productos">Productos</a>
                     </li>
                     <li class=" mobile">
-                        <a href="/contacto" title="contacto">Contacto</a>
+                        <a href="news" title="news">Noticias</a>
+                    </li>
+                    <li class=" mobile">
+                        <a href="contacto" title="contacto">Contacto</a>
                     </li>
                 </ul>
             </nav>
@@ -88,20 +85,20 @@
                         <div class="navbar navbar-expand-lg">
                             <div id="main-menu" class="collapse navbar-collapse">
                                 <ul class="navbar-nav mr-auto list-group-horizontal d-table">
-                                    <li class="nav-item d-table-cell">
-                                        <a href="/" title="inicio" class=" trsn nav-link d-table-cell align-middle">Inicio</a>
+                                <li class="nav-item d-table-cell">
+                                        <a href="inicio" title="inicio" class=" trsn nav-link d-table-cell align-middle">Inicio</a>
                                     </li>
                                     <li class="nav-item d-table-cell">
-                                        <a href="/nosotros" title="nosotros" class=" trsn nav-link d-table-cell align-middle">Nosotros</a>
+                                        <a href="nosotros" title="nosotros" class=" trsn nav-link d-table-cell align-middle">Nosotros</a>
                                     </li>
                                     <li class="nav-item d-table-cell">
                                         <a href="catalogo-productos" title="productos" class=" trsn nav-link d-table-cell align-middle">Productos</a>
                                     </li>
                                     <li class="nav-item d-table-cell">
-                                        <a href="/noticias" title="Noticias" class=" trsn nav-link d-table-cell align-middle">Noticias</a>
+                                        <a href="news" title="news" class=" trsn nav-link d-table-cell align-middle">Noticias</a>
                                     </li>
                                     <li class="nav-item d-table-cell">
-                                        <a href="/contacto" title="Contacto" class=" trsn nav-link d-table-cell align-middle">Contacto</a>
+                                        <a href="contacto" title="Contacto" class=" trsn nav-link d-table-cell align-middle">Contacto</a>
                                     </li>
                                 </ul>
                                 <ul class="social navbar-toggler-right list-inline d-none d-xl-block">
@@ -295,3 +292,42 @@
             })
         })
     </script>
+        <style type="text/css">
+        body {
+            font-family: 'Source Sans Pro' !important;
+        }
+
+        .page-header,
+        h2 {
+            font-family: 'Open Sans' !important;
+        }
+
+        .navbar-brand,
+        .text-logo {
+            font-family: 'Source Sans Pro' !important;
+        }
+
+        p,
+        .caption h4,
+        label,
+        table,
+        .panel {
+            font-size: 16px !important;
+        }
+
+        h1.block-header,
+        h2.block-header,
+        h2.summary-title {
+            font-size: 18px !important;
+        }
+
+        .navbar-brand,
+        .text-logo {
+            font-size: 32px !important;
+        }
+
+        header #main-menu .navbar-nav a.nav-link {
+            font-size: 14px !important;
+        }
+    </style>
+</body>

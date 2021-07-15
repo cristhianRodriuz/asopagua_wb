@@ -30,6 +30,10 @@ class AjaxClientes{
         $res = ControllerClientes::ctrVerifyDataCliente($dniVerificate,$emailVerificate);
         echo json_encode($res);
     }
+    public function ajaxAgregarClienteCart($datos){
+        $res = ControllerClientes::ctrAgregarClienteCart($datos);
+        echo json_encode($res);
+    }
 }
 if(isset($_POST["emailCliente"])){
     $verificarEmail = new AjaxClientes();
@@ -88,4 +92,38 @@ if(isset($_POST["verifiyDNI"])){
     
     $verifiyDataCliente = new AjaxClientes();
     $verifiyDataCliente->ajaxVerifyDataCliente($dniVerificate,$emailVerificate);
+}
+if(isset($_POST["regClienteCart"])){
+    $datos = [];
+    $actionCliente = new AjaxClientes();
+    if(isset($_POST["editIdClienteCart"])){
+        $datos = [
+            "idCliente" => $_POST["editIdClienteCart"],
+            "regNombreCliente" => $_POST["regNombreClienteCart"],
+            "regApellidoCliente" => $_POST["regApellidoClienteCart"],
+            "regDNICliente" => $_POST["regDNIClienteCart"],
+            "regEmailCliente" => $_POST["regEmailClienteCart"],
+            "regProvinciaCliente" => $_POST["regProvinciaClienteCart"],
+            "regCantonCliente" => $_POST["regCantonClienteCart"],
+            "regParroquiaCliente" => $_POST["regParroquiaClienteCart"],
+            "regDireccionCliente" => $_POST["regDireccionClienteCart"],
+            "regTelefonoCliente" => $_POST["regTelefonoClienteCart"],
+            "regCelularCliente" => $_POST["regCelularClienteCart"]
+        ];
+        $actionCliente->ajaxUpdateCliente($datos);
+    }else{
+        $datos = [
+            "regNombreCliente" => $_POST["regNombreClienteCart"],
+            "regApellidoCliente" => $_POST["regApellidoClienteCart"],
+            "regDNICliente" => $_POST["regDNIClienteCart"],
+            "regEmailCliente" => $_POST["regEmailClienteCart"],
+            "regProvinciaCliente" => $_POST["regProvinciaClienteCart"],
+            "regCantonCliente" => $_POST["regCantonClienteCart"],
+            "regParroquiaCliente" => $_POST["regParroquiaClienteCart"],
+            "regDireccionCliente" => $_POST["regDireccionClienteCart"],
+            "regTelefonoCliente" => $_POST["regTelefonoClienteCart"],
+            "regCelularCliente" => $_POST["regCelularClienteCart"]
+        ];
+        $actionCliente->ajaxAgregarClienteCart($datos);
+    }
 }

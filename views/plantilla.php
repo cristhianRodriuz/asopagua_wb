@@ -7,7 +7,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asopagua</title>
+    <title><?php echo $_SESSION["page_titulo"];?></title>
     <link rel="icon" href="<?php echo URL . VW; ?>assets/images/bg_small.png">
     <!-- Facebook Meta tags for Product -->
     <link rel="canonical" href="/">
@@ -50,15 +50,14 @@ session_start();
             $url = explode('/',$url);
             if($url[0] == "admin"){
                 if(isset($_SESSION["admin_logueado"])){
-                    echo `<script>
-                        window.location.href = "dashboard";
-                    </script>`;
+                    header('Location: dashboard');
                 }else{
                     include 'views/modulos/login.php';
                 }
-            }else if($url[0] == "dashboard" || $url[0] == "categorias" || $url[0] == "usuarios" || $url[0] == "clientes" || $url[0] == "productos" || $url[0] == "pedidos" || $url == "distribuidores" || $url[0] == "noticias" || $url[0] == "logout" || $url[0] == "pedidos-pendientes" || $url[0] == "pedidos-verificados" || $url[0] == "pedidos-enviados" || $url[0] == "cart" || $url[0] == '' || $url[0] == "inicio" || $url[0] == "catalogo-productos" || $url[0] == "confirmacion" || $url[0] == "mensajes" || $url[0] == "noticias" || $url[0] ==  "recuperar-password" || $url[0] == "reportes"){
+            }else if($url[0] == "dashboard" || $url[0] == "categorias" || $url[0] == "usuarios" || $url[0] == "clientes" || $url[0] == "productos" || $url[0] == "pedidos" || $url == "distribuidores" || $url[0] == "noticias" || $url[0] == "logout" || $url[0] == "pedidos-pendientes" || $url[0] == "pedidos-verificados" || $url[0] == "pedidos-enviados" || $url[0] == "cart" || $url[0] == '' || $url[0] == "inicio" || $url[0] == "catalogo-productos" || $url[0] == "confirmacion" || $url[0] == "mensajes" || $url[0] == "noticias" || $url[0] ==  "recuperar-password" || $url[0] == "reportes" || $url[0] == "news" || $url[0] == "nosotros" || $url[0] == "contacto"){
                 $pathView = VW.MOD.$url[0].'.php';
-                if($url[0] == "cart" || $url[0] == '' || $url[0] == "inicio" || $url[0] == "catalogo-productos" || $url[0] == "confirmacion" || $url[0] == "recuperar-password"){
+                $_SESSION["page_titulo"] = ($url[0] == "inicio" || $url[0] == "index") ? "Asopagua" : ucfirst($url[0]);
+                if($url[0] == "cart" || $url[0] == '' || $url[0] == "inicio" || $url[0] == "catalogo-productos" || $url[0] == "confirmacion" || $url[0] == "recuperar-password" || $url[0] == "news" || $url[0] == "nosotros" || $url[0] == "contacto"){
                     require $pathView;
                 }else if(isset($_SESSION["admin_logueado"])){
                     if(file_exists($pathView)){
@@ -72,10 +71,14 @@ session_start();
                                 echo '</div>';
                             echo '</div>';
                         echo "</div>";
+                    }else{
+                        include 'views/modulos/error404.php';
                     }
                 }else{
                     include 'views/modulos/403.php';
                 }
+            }else{
+                include 'views/modulos/error404.php';
             }
         }else{
             $pathView = VW.MOD.'inicio.php';

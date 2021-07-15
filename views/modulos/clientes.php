@@ -282,7 +282,6 @@
             processData: false,
             contentType: false,
             success: function(response) {
-                console.log(response);
                 let status = JSON.parse(response);
                 let mensaje = (formData.get("accion") == "Editar") ? "Cliente editado correctamente" : "Cliente agregado correctamente";
                 if (status.verificado) {

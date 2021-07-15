@@ -35,6 +35,7 @@ if(isset($_POST["getDetallePedido"])){
 if(isset($_POST["cmbPedidoPerId"])){
     $setEstadoPedido = new AjaxPedidos();
     $setEstadoPedido->ajaxSetEstadoPedido($_POST["cmbPedidoPerId"],$_POST["newEstado"]);
+    // echo json_encode($_POST["newEstado"]);
 }
 if(isset($_POST["deletePedidoPerId"])){
    $deletePedido = new AjaxPedidos();
@@ -42,5 +43,5 @@ if(isset($_POST["deletePedidoPerId"])){
 }
 if(isset($_POST["nuevo_pedido"])){
     $nuevoPedido = new AjaxPedidos();
-    $nuevoPedido->ajaxNuevoPedido($_POST["clienteRec"],$_POST["detallePedido"],$_POST["totalPago"]);
+    $nuevoPedido->ajaxNuevoPedido($_POST["clienteReg"],$_POST["detalle_pedido"],$_POST["totalPago"]);
 }

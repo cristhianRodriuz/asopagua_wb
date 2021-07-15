@@ -4,7 +4,7 @@
     <h3 class="h3 mb-2 text-gray-800">Noticias</h3>
     <div class="card shadow mb-4">
         <div class="card-header border-0">
-            <button class="btn btn-primary btnNuevo" data-toggle="modal" data-target="#modalActionNoticias">Agregar nueva noticia</button>
+            <button class="btn btn-primary btnNuevo" data-toggle="modal" data-target="#modalActionNoticias">Agregar nuevo noticia</button>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -27,7 +27,7 @@
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
                                 <div class="modal-header bg-gradient-primary text-white">
-                                    <h4 class="modal-title font-weight-bold titleModalNoticia text-center" id="exampleModalLabel">NUEVA NOTICIA</h4>
+                                    <h4 class="modal-title font-weight-bold titleModal text-center" id="exampleModalLabel">NUEVA NOTICIA</h4>
                                 </div>
                                 <div class="modal-body">
                                     <form method="POST" enctype="multipart/form-data" id="formNoticia">
@@ -57,16 +57,19 @@
 
                                                 </div>
                                                 <div class="form-group mb-3">
-                                                    <label for="floatingEmail">Descripción</label>
-                                                    <textarea type="text" name="regDescripcionNoticia" id="regDescripcionNoticia" class="form-control" rows="5"></textarea>
-
+                                                    <label for="regDescripcionNoticia">Descripcion</label>
+                                                    <input type="text" name="regDescripcionNoticia" id="regDescripcionNoticia" class="form-control form-control-lg" placeholder="20 palabras max.">
                                                 </div>
                                                 <div class="form-group mb-3">
-                                                    <label for="regCreadoPor">Publicada por</label>
+                                                    <label for="regDesarrolloNoticia">Desarrollo</label>
+                                                    <textarea name="regDesarrolloNoticia" id="regDesarrolloNoticia" class="form-control" rows="7"></textarea>
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <label for="regCreadoPor">Registrado por</label>
                                                     <input type="text" id="regCreadoPor" name="regCreadoPor" class="form-control text-secondary"  value="<?php echo $_SESSION["full_name"]; ?>" disabled style="font-size: 14px;">
                                                 </div>
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary btnEditAdd" id="btnEditAdd">Publicar</button>
+                                                    <button type="submit" class="btn btn-primary btnEditAdd" id="btnEditAdd">Registrar</button>
                                                     <button type="button" class="btn btn-danger btnEliminar" data-dismiss="modal">Eliminar</button>
                                                     <button type="button" class="btn btn-dark float-right" id="btnCancelar" data-dismiss="modal">Cancelar</button>
                                                 </div>
@@ -103,6 +106,7 @@ $().ready(function(){
                     $(".noticia").val(data.id);
                     $("#regTituloNoticia").val(data.titulo);
                     $("#regDescripcionNoticia").val(data.descripcion);
+                    $("#regDesarrolloNoticia").val(data.desarrollo);
                     $("#regCreadoPor").val(data.publicador);
                     $("#imgNoticia").attr('src', imgUrl + data.imagen);
                     $("#imgNoticia").attr('data-title',data.imagen);
@@ -117,7 +121,8 @@ $().ready(function(){
             $(".titleModal").html("Nueva Noticia");
             $("#regTituloNoticia").val("");
             $("#regDescripcionNoticia").val("");
-            $("#btnEditAdd").html("Publicar");
+            $("#regDesarrolloNoticia").val("");
+            $(".btnEditAdd").html("Registrar");
             $("#imgNoticia").attr('src', imgUrl + "noticiasDefault.png");
             $(".btnEliminar").hide();
             initializeInputs();
@@ -180,6 +185,7 @@ $().ready(function(){
             }
             formData.append("regTituloNoticia", $("#regTituloNoticia").val());
             formData.append("regDescripcionNoticia", $("#regDescripcionNoticia").val());
+            formData.append("regDesarrolloNoticia",$("#regDesarrolloNoticia").val());
             formData.append("regCreadoPor", $("#regCreadoPor").val());
             console.log($(".noticia").val());
             $.ajax({

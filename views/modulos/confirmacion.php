@@ -45,7 +45,7 @@
 </header>
 <div class="container container-main">
     <div class="row d-flex justify-content-center align-items-center"">
-        <div class="col-md-10">
+        <div class="col-md-10" id="targetDescriptionPedido">
             <div class="card">
                 <div class="card-header" style="background-color: #003333;">
                     <h2 class="text-white text-center">Gracias por preferirnos</h2>
@@ -68,8 +68,14 @@
 
 <script>    
     $().ready(function(){
+        $("#targetDescriptionPedido").hide();
         if(localStorage.getItem("detalle_cliente_pedido")){
+            $("#targetDescriptionPedido").show();
             let detalles = JSON.parse(localStorage.getItem("detalle_cliente_pedido"));
+            console.log(detalles);  
+            $("#nameCode").html(detalles.codigo)
+            $("#emailAddress").html(detalles.email)
+            $("#totalPedido").html("$ " + detalles.total);
             $.ajax({
                 type: "POST",
                 url: "ajax/reportes.php",
@@ -77,12 +83,17 @@
                     detalles
                 },
                 success: function (response) {
-                    console.log(response);
+                    localStorage.removeItem("detalle_cliente_pedido");
                 }
             });
         }else{
             window.location.href = "inicio";
         }
+        
+        $("#btnRegresar").on("click",function(){
+            window.location.href = "inicio";
+
+        })
     })
 </script>
 <!-- <footer id="footer" class="footer-1 mt-2">

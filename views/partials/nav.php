@@ -28,7 +28,7 @@
                         <div id="mensajeNuevosPedidos">
                         </div>
                     </a>
-                    <a class="dropdown-item text-center small text-gray-500" href="#">Ver todos los pedidos</a>
+                    <a class="dropdown-item text-center small text-gray-500" href="pedidos-pendientes">Ver todos los pedidos</a>
                 </div>
             </li>
 
